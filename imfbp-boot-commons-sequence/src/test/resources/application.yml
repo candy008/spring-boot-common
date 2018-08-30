@@ -1,0 +1,23 @@
+server:
+  context-path: /imfbp-commonapi-rpc
+  port: 9999
+spring:
+  datasource:
+    url: jdbc:mysql://dev-test.mysql.imfbp.com:3306/commonapi?useUnicode=true&characterEncoding=utf-8
+    #url: jdbc:mysql://192.168.1.109:3306/spring-boot-test?useUnicode=true&characterEncoding=utf-8
+    username: super
+    password: super@1
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    #数据库配置
+    database: 0
+    #链接池配置
+    pool:
+      max-idle: 8
+      min-idle: 0
+      max-active: 8
+      max-wait: -1
+    #哨兵监听redis server名称
+    sentinel:
+      master: session-cluster
+      nodes: test.sentinel1.imfbp.com:26379,test.sentinel2.imfbp.com:26379,test.sentinel3.imfbp.com:26379
